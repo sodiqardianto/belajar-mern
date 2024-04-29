@@ -1,14 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import session from 'express-session';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import UserRoute from './routes/UserRoute';
+import ProductRoute from './routes/ProductRoute';
 
 const app = express();
 
 app.use(session({
-    secret: process.env.APP_SECRET || 'default_secret',
+    secret: process.env.APP_SECRET as string,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -22,6 +21,8 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use(UserRoute);
+app.use(ProductRoute);
 
 app.listen(process.env.APP_PORT, () => {
     console.log('Server running')
