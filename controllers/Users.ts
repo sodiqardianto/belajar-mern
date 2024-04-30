@@ -1,14 +1,6 @@
+import type { UserAttributes } from "../interface/UserInterface";
 import Users from "../models/UserModel";
 import argon2 from 'argon2';
-
-interface UserAttributes {
-    id: number;
-    name: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-    role: string;
-}
 
 export const getUsers = async (req: any, res: any) => {
     try {

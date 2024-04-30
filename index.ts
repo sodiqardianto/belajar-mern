@@ -3,6 +3,7 @@ import cors from 'cors';
 import session from 'express-session';
 import UserRoute from './routes/UserRoute';
 import ProductRoute from './routes/ProductRoute';
+import AuthRoute from './routes/AuthRoute';
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use(AuthRoute)
 app.use(UserRoute);
 app.use(ProductRoute);
 
