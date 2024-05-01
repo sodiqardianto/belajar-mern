@@ -32,8 +32,7 @@ export const Login = async (req: any, res: any) => {
     });
 }
 
-export const Me = async (req: any, res: any) => {
-    
+export const Me = async (req: any, res: any) => {    
     if (!req.session.userId) {
         return res.status(401).json({
             msg: "Unauthorized."
