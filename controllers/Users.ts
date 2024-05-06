@@ -63,8 +63,8 @@ export const updateUser = async (req: any, res: any) => {
     })
 
     const { name, email, password, confirmPassword, role } = req.body;
-    let hashedPassword;
 
+    let hashedPassword;
     if (password === "" || password === null) {
         hashedPassword = user.password;
     } else {
@@ -83,7 +83,7 @@ export const updateUser = async (req: any, res: any) => {
             role: role
         }, {
             where: {
-                id: req.params.id
+                id: user.id
             }
         })
         res.status(201).json({msg: "User updated."})
